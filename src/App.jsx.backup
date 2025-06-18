@@ -1,0 +1,290 @@
+﻿import { useState } from 'react'
+import { Button } from '@/components/ui/button.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { Badge } from '@/components/ui/badge.jsx'
+import { Camera, Users, Star, CheckCircle, Phone, MessageCircle, Upload, MapPin, Instagram } from 'lucide-react'
+import logoOmma from './assets/LOGOPRETA.png'
+import iramGuimaraesPhoto from './assets/iram_guimaraes.jpg'
+import './App.css'
+
+function App() {
+  const whatsappMessage = encodeURIComponent("Olá! Vi o ensaio OMMA ID no site e gostaria de saber mais sobre as datas disponíveis.")
+  const whatsappNumber = "5541988708588" // Número atualizado
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img src={logoOmma} alt="Estúdio Omma" className="h-64 w-auto max-w-none" />
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button 
+                variant="outline"
+                className="border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white"
+                onClick={() => window.open('https://instagram.com/ommaphotoart', '_blank')}
+              >
+                <Instagram className="h-4 w-4 mr-2" />
+                Instagram
+              </Button>
+              <Button 
+                className="bg-green-600 hover:bg-green-700"
+                onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
+              >
+                <MessageCircle className="h-4 w-4 mr-2" />
+                WhatsApp
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Sua foto de perfil está à altura da sua carreira?
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600 mb-8">
+            Seu próximo nível profissional começa aqui.
+          </p>
+          <p className="text-lg text-gray-500 mb-10">
+            O Estúdio OMMA transforma sua imagem profissional com retratos que unem arte e essência.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg"
+            onClick={() => document.getElementById('solucoes').scrollIntoView({ behavior: 'smooth' })}
+          >
+            Conhecer Soluções
+          </Button>
+        </div>
+      </section>
+
+      {/* Para quem é este serviço */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Para quem é este serviço?</h3>
+          <p className="text-lg text-gray-600 text-center mb-12 leading-relaxed">
+            Este serviço é para você, executivo, advogado, médico, empresário ou profissional liberal em Curitiba, 
+            que entende o valor de uma imagem profissional impecável. Se você busca retratos que transmitam confiança, 
+            competência e a sua verdadeira essência, sem perder tempo com processos complicados, o Estúdio Omma é o 
+            seu parceiro ideal. Chega de fotos amadoras que não fazem jus ao seu potencial. É hora de elevar sua 
+            presença online e offline.
+          </p>
+        </div>
+      </section>
+
+      {/* Sobre o Fotógrafo */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Sobre o Fotógrafo</h3>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="bg-white p-8 rounded-lg shadow-sm">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                No coração do Estúdio Omma está <strong>Iram Guimarães</strong>, um fotógrafo que vê além da câmera. 
+                Inspirado pela profundidade de Sebastião Salgado, Steve McCurry e outros grandes nomes da fotografia, Iram acredita que cada sessão de fotos é um encontro 
+                humano, uma troca genuína onde fotógrafo e fotografado compartilham atenção, medos e sonhos. Não é 
+                apenas sobre um clique, mas sobre sentir o que o outro sente, transformando cada retrato em uma 
+                narrativa autêntica da sua jornada. É essa conexão que eleva o <strong>retrato profissional</strong> a 
+                uma obra de arte, um reflexo fiel da sua alma e da sua trajetória.
+.
+              </p>
+            </div>
+            
+            {/* Espaço para foto do fotógrafo - proporção 4:5 */}
+            <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+              <img 
+                src={iramGuimaraesPhoto} 
+                alt="Iram Guimarães" 
+                className="w-full aspect-[4/5] object-cover rounded-lg mb-4"
+              />
+              <p className="text-sm text-gray-400 italic">
+                Foto de Iram Guimarães
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfólio */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl font-bold text-gray-900 mb-4 text-center">Nosso Portfólio</h3>
+          <p className="text-xl text-gray-600 mb-16 text-center">Alguns dos nossos trabalhos mais recentes</p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[1, 2, 3, 4, 5, 6].map((index) => (
+              <div key={index} className="relative group">
+                <div className="aspect-[4/5] bg-gray-100 rounded-lg overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors">
+                  <div className="text-center">
+                    <Camera className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                    <p className="text-gray-500 text-sm">Foto {index}</p>
+                    <p className="text-gray-400 text-xs">do Portfólio</p>
+                    <p className="text-gray-400 text-xs">4:5</p>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Upload className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-sm text-gray-500 italic">
+              Substitua essas áreas pelas 6 fotos do seu portfólio (proporção 4:5)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Soluções */}
+      <section id="solucoes" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-4xl font-bold text-gray-900 mb-4 text-center">Nossas Soluções</h3>
+          <p className="text-xl text-gray-600 mb-16 text-center">Escolha a opção ideal para suas necessidades</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* OMMA ID */}
+            <Card className="relative overflow-hidden border-2 hover:border-gray-300 transition-colors">
+              <CardHeader className="text-center">
+                <Badge className="w-fit mx-auto mb-4 bg-blue-100 text-blue-800">Mais Vendido</Badge>
+                <CardTitle className="text-2xl font-bold">OMMA ID</CardTitle>
+                <CardDescription className="text-lg font-semibold text-gray-700">
+                  Sua identidade profissional, resolvida.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6 text-justify">
+                  O OMMA ID é a solução direta e de alta qualidade para quem busca retratos impactantes de uso profissional. Ideal para perfis de LinkedIn, currículos e todas as suas plataformas digitais. Garanta uma imagem que fala por si, com a agilidade e a excelência que você precisa.
+                </p>
+                <div className="text-3xl font-bold text-gray-900 mb-6">A partir de R$ 499</div>
+                <Button 
+                  className="w-full bg-gray-900 hover:bg-gray-800"
+                  onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
+                >
+                  Saber Mais e Agendar
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* OMMA Signature */}
+            <Card className="relative overflow-hidden border-2 hover:border-gray-300 transition-colors">
+              <CardHeader className="text-center">
+                <Badge className="w-fit mx-auto mb-4 bg-purple-100 text-purple-800">Premium</Badge>
+                <CardTitle className="text-2xl font-bold">OMMA Signature</CardTitle>
+                <CardDescription className="text-lg font-semibold text-gray-700">
+                  Seu projeto de imagem e personalidade.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6 text-justify">
+                  Mais do que fotos, o OMMA Signature é uma experiência artística completa e sob medida. Através de um briefing detalhado, criamos um roteiro visual exclusivo, com direção criativa que traduz sua personalidade e seus objetivos em cada imagem. Ideal para quem busca um posicionamento de marca forte e autêntico.
+                </p>
+                <div className="text-2xl font-bold text-gray-900 mb-6">Projetos Sob Consulta</div>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                  onClick={() => window.open(`https://wa.me/${whatsappNumber}`, '_blank')}
+                >
+                  Iniciar uma Conversa
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* OMMA Corporate */}
+            <Card className="relative overflow-hidden border-2 hover:border-gray-300 transition-colors">
+              <CardHeader className="text-center">
+                <Badge className="w-fit mx-auto mb-4 bg-green-100 text-green-800">Empresas</Badge>
+                <CardTitle className="text-2xl font-bold">OMMA Corporate</CardTitle>
+                <CardDescription className="text-lg font-semibold text-gray-700">
+                  Retratos de equipe que refletem a força da sua marca.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6 text-justify">
+                  O OMMA Corporate é uma solução personalizada para empresas que desejam padronizar e elevar a imagem de seus colaboradores. Seja no nosso estúdio ou in-loco. Garantimos flexibilidade na formatação da proposta e resultados que fortalecem a identidade visual da sua equipe. Invista na imagem da sua empresa com um <strong>headshot profissional</strong> de alto nível para todos.
+                </p>
+                <div className="text-2xl font-bold text-gray-900 mb-6">Solicite um Orçamento</div>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                  onClick={() => window.open(`https://wa.me/${whatsappNumber}`, '_blank')}
+                >
+                  Orçamento para Equipes
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Como Funciona */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-4xl font-bold text-gray-900 mb-4 text-center">Como Funciona</h3>
+          <p className="text-xl text-gray-600 mb-16 text-center">Nosso processo é simples, rápido e focado em você</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-2xl font-bold text-white">1</span>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Contato Inicial</h4>
+              <p className="text-gray-600">
+                Você entra em contato, conversamos sobre suas necessidades e agendamos a melhor data.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-2xl font-bold text-white">2</span>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">A Sessão</h4>
+              <p className="text-gray-600">
+                No dia, o fotógrafo te guia em uma experiência leve e profissional, capturando seus melhores ângulos e expressões.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-gray-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span className="text-2xl font-bold text-white">3</span>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Entrega Impecável</h4>
+              <p className="text-gray-600">
+                Você recebe suas fotos com tratamento PRO em meios digitais, prontas para impressionar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl font-bold text-gray-900 mb-16 text-center">O que nossos clientes dizem</h3>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((index) => (
+              <Card key={index} className="bg-white">
+                <CardContent className="p-6">
+                  {/* Espaço para foto do cliente - proporção 4:5 */}
+                  <div className="flex justify-center mb-4">
+                    <div className="w-20 aspect-[4/5] bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
+                      <div className="text-center">
+                        <Upload className="h-4 w-4 text-gray-400 mx-auto mb-1" />
+                        <p className="text-gray-400 text-xs">4:5</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400"
+(Content truncated due to size limit. Use line ranges to read in chunks)
+
